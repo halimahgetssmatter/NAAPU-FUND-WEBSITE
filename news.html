@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naapu Fund · News</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <a href="indexhtml.html" class="logo">
+      <i class="fas fa-hands-helping"></i> Naapu <span>Fund</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="indexhtml.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="programs.html"><i class="fas fa-tree"></i> Programs</a></li>
+      <li><a href="news.html" class="active"><i class="fas fa-newspaper"></i> News</a></li>
+      <li><a href="indexhtml.html#contact"><i class="fas fa-envelope"></i> Contact & Donate</a></li>
+    </ul>
+  </nav>
+
+  <h1 style="color:var(--swt-brown); font-size:2.8rem; margin-top:2rem;"><i class="fas fa-calendar-alt" style="color:var(--swt-orange);"></i> News & Events</h1>
+
+  <p style="margin: 0.5rem 0 1.5rem; color:#5f4b34; max-width:760px;">
+    These stories focus on the Naapu Fund and the work of indigenous women leading change through trust-based philanthropy.
+  </p>
+
+  <div class="grid-2col">
+    <div class="card" style="border-top:6px solid var(--swt-orange);">
+      <i class="fas fa-hand-holding-heart"></i>
+      <h3>Naapu Indigenous Women Fund: Trusting Indigenous Women to Lead Change</h3>
+      <p>The Naapu Indigenous Women Fund was created to ensure indigenous women lead the decisions and solutions that shape their communities.</p>
+      <a href="/blog/naapu-indigenous-women-fund-trusting-indigenous-women-to-lead-change" class="btn" style="margin-top:0.8rem; padding:0.4rem 1.2rem;">Read More</a>
+    </div>
+
+    <div class="card" style="border-top:6px solid var(--swt-gold);">
+      <i class="fas fa-users"></i>
+      <h3>The Ever Feminist Fund: Designed by Women, For Women</h3>
+      <p>This fund shifts power, resources, and decision-making back to women, creating a more just and feminist model of support.</p>
+      <a href="/blog/the-ever-feminist-fund-designed-by-women-for-women-shifting-power-where-it-belongs" class="btn" style="margin-top:0.8rem; padding:0.4rem 1.2rem;">Read More</a>
+    </div>
+
+    <div class="card" style="border-top:6px solid var(--swt-brown);">
+      <i class="fas fa-chart-line"></i>
+      <h3>A Historic Shift in Power — NAAPU Fund Launch</h3>
+      <p>The launch marked an important milestone in moving indigenous women from beneficiaries to architects of funding and change.</p>
+      <a href="/uploads/blog_images/69a7cfed35856_1772605421.jpg" class="btn" style="margin-top:0.8rem; padding:0.4rem 1.2rem;">Read More</a>
+    </div>
+
+    <div class="card" style="border-top:6px solid #2E86AB;">
+      <i class="fas fa-seedling"></i>
+      <h3>Strengthening Indigenous Women Leadership Through Trust-Based Philanthropy</h3>
+      <p>The first phase of grant disbursement showed how trust-based funding can build leadership and sustainability for women-led organizations.</p>
+      <a href="c:\Users\dell\Downloads\1779947377_Naapu_Brochure_Launch.pdf" class="btn" style="margin-top:0.8rem; padding:0.4rem 1.2rem;">Read More</a>
+    </div>
+  </div>
+
+  <div id="admin-news-items" class="grid-2col" style="margin-top:1.2rem;"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>© 2026 Naapu Fund · Samburu Women Trust</span>
+    <span><i class="fab fa-twitter"></i> <i class="fab fa-instagram"></i> <i class="fab fa-facebook"></i></span>
+    <span>Built with <i class="fas fa-heart" style="color:#E68A2E;"></i> for impact</span>
+  </footer>
+</div>
+
+<script>
+  const adminItemsStorageKey = 'naapu-admin-items';
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/\"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function getAdminItems() {
+    const saved = localStorage.getItem(adminItemsStorageKey);
+    return saved ? JSON.parse(saved) : [];
+  }
+
+  function renderAdminNewsItems() {
+    const container = document.getElementById('admin-news-items');
+    if (!container) return;
+
+    const items = getAdminItems();
+    if (!items.length) {
+      container.innerHTML = '';
+      return;
+    }
+
+    container.innerHTML = items.map(function (item) {
+      const icon = item.type === 'picture' ? 'fa-image' : 'fa-file-alt';
+      const label = item.type === 'picture' ? 'Open Image' : 'Open Document';
+      const preview = item.type === 'picture'
+        ? `<img src="${item.dataUrl}" alt="${escapeHtml(item.title)}" style="width:100%;max-height:200px;object-fit:cover;border-radius:12px;margin-bottom:0.8rem;">`
+        : `<div class="file-badge" style="margin-bottom:0.8rem;"><i class="fas fa-file-alt"></i> ${escapeHtml(item.fileName)}</div>`;
+
+      return `
+        <div class="card" style="border-top:6px solid ${item.type === 'picture' ? 'var(--swt-gold)' : 'var(--swt-brown)'};">
+          <i class="fas ${icon}"></i>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.notes || (item.type === 'picture' ? 'Uploaded picture from the admin page.' : 'Uploaded document from the admin page.'))}</p>
+          ${preview}
+          <a href="${item.dataUrl}" class="btn" style="margin-top:0.8rem; padding:0.4rem 1.2rem;">${label}</a>
+        </div>
+      `;
+    }).join('');
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    renderAdminNewsItems();
+
+    document.addEventListener('click', function (event) {
+      const link = event.target.closest('.btn');
+      if (!link) return;
+
+      const url = link.getAttribute('href');
+      if (!url || url.trim() === '') {
+        event.preventDefault();
+        return;
+      }
+
+      event.preventDefault();
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+  });
+
+  window.addEventListener('naapu-items-updated', renderAdminNewsItems);
+</script>
+</body>
+</html>

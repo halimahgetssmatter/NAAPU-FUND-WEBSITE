@@ -27,16 +27,17 @@
     }
 
     body {
-      background-color: var(--swt-cream);
-      color: var(--swt-dark);
-      line-height: 1.6;
-      padding: 1rem;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("../IMG_0409.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     }
 
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      background: var(--swt-white);
+      background: rgba(255, 255, 255, 0.72);
       border-radius: 32px 32px 24px 24px;
       box-shadow: var(--shadow);
       overflow: hidden;
@@ -132,7 +133,7 @@
     .btn {
       display: inline-block;
       background: var(--swt-orange);
-      color: white;
+      color: rgb(203, 83, 19);
       padding: 0.75rem 2rem;
       border-radius: 60px;
       font-weight: 600;
@@ -219,8 +220,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0;
+      overflow: hidden;
+      box-sizing: border-box;
       font-size: 3rem;
-      color: var(--swt-brown);
+      color: var(--swt-orange);
       border: 2px dashed var(--swt-gold);
       transition: 0.2s;
     }
@@ -231,6 +235,18 @@
       background: var(--swt-gold);
       color: white;
       border-color: var(--swt-orange);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+      display: block;
+    }
+    .gallery-item a {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
 
     /* contact & donation */
@@ -325,13 +341,11 @@
       <i class="fas fa-hands-helping"></i> Naapu <span>Fund</span>
     </div>
     <ul class="nav-links">
-      <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-      <li><a href="#programs"><i class="fas fa-tree"></i> Programs</a></li>
-      <li><a href="#news"><i class="fas fa-newspaper"></i> News</a></li>
-      <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
-      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-      <li><a href="#donate"><i class="fas fa-hand-holding-heart"></i> Donate</a></li>
+      <li><a href="indexhtml.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="About.html"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="programs.html"><i class="fas fa-tree"></i> Programs</a></li>
+      <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
+      <li><a href="indexhtml.html#contact"><i class="fas fa-envelope"></i> Contact & Donate</a></li>
     </ul>
   </nav>
 
@@ -354,8 +368,8 @@
   <div class="grid-2col">
     <div class="card"><i class="fas fa-flag"></i><h3>WHY NAAPU MATTERS</h3><p>Indigenous women are the leading change agents in their communities- advancing gender justice, protecting land and culture, responding to climate shocks and supporting women and girls facing violence and marginalisation.</p></div>
     <div class="card"><i class="fas fa-eye"></i><h3>WE FUND AND SUPPORT</h3><p>A future where every Indigenous woman thrives with dignity, self-reliance, and equal participation in community development.</p></div>
-    <div class="card"><i class="fas fa-handshake"></i><h3>VISION</h3><p>A future where indigenous women and gi</p></div>
-    <div class="card"><i class="fas fa-users"></i><h3>Team</h3><p>Dedicated staff, volunteers, and board members from the ASAL regionS committed to transparent, impact-driven work.</p></div>
+    <div class="card"><i class="fas fa-handshake"></i><h3>VISION</h3><p>A future where indigenous women and girls lead thriving, self determined communities, excercing rights, safeguarding land, territories, cultures and knowledge systems, advancing climate justice snd shaping inclusive societies grounded in dignity, collective care, resillience and intergenerational wellbeing. </p></div>
+    <div class="card"><i class="fas fa-users"></i><h3>MISSION</h3><p>Dedicated staff, volunteers, and board members from the ASAL regionS committed to transparent, impact-driven work.</p></div>
   </div>
 
   <!-- PROGRAMS -->
@@ -382,33 +396,32 @@
   <!-- GALLERY -->
   <h2 class="section-title" id="gallery"><i class="fas fa-camera" style="color:var(--swt-orange); margin-right:0.5rem;"></i> Gallery</h2>
   <div class="gallery-grid">
-    <div class="gallery-item"><i class="fas fa-image"></i></div>
-    <div class="gallery-item"><i class="fas fa-image"></i></div>
-    <div class="gallery-item"><i class="fas fa-image"></i></div>
-    <div class="gallery-item"><i class="fas fa-image"></i></div>
-    <div class="gallery-item"><i class="fas fa-image"></i></div>
-    <div class="gallery-item"><i class="fas fa-image"></i></div>
+    <div class="gallery-item"><a href="../IMG_5734.jpg" target="_blank" rel="noopener noreferrer"><img src="../IMG_5734.jpg" alt="Naapu photo 1"></a></div>
+    <div class="gallery-item"><a href="../IMG_5737.jpg" target="_blank" rel="noopener noreferrer"><img src="../IMG_5737.jpg" alt="Naapu photo 2"></a></div>
+    <div class="gallery-item"><a href="../IMG_5758.jpg" target="_blank" rel="noopener noreferrer"><img src="../IMG_5758.jpg" alt="Naapu photo 3"></a></div>
+    <div class="gallery-item"><a href="../IMG_5768.jpg" target="_blank" rel="noopener noreferrer"><img src="../IMG_5768.jpg" alt="Naapu photo 4"></a></div>
+    <div class="gallery-item"><a href="../IMG_5804.jpg" target="_blank" rel="noopener noreferrer"><img src="../IMG_5804.jpg" alt="Naapu photo 5"></a></div>
+    <div class="gallery-item"><a href="../IMG_5814.jpg" target="_blank" rel="noopener noreferrer"><img src="../IMG_5814.jpg" alt="Naapu photo 6"></a></div>
+    <div class="gallery-item"><a href="../IMG_5845.jpg" target="_blank" rel="noopener noreferrer"><img src="../IMG_5845.jpg" alt="Naapu photo 7"></a></div>
+    <div class="gallery-item"><a href="../IMG_5873.jpg" target="_blank" rel="noopener noreferrer"><img src="../IMG_5873.jpg" alt="Naapu photo 8"></a></div>
+    <div class="gallery-item"><a href="../_DSC0195.jpg" target="_blank" rel="noopener noreferrer"><img src="../_DSC0195.jpg" alt="Naapu photo 9"></a></div>
+    <div class="gallery-item"><a href="../IMG_0409.jpg" target="_blank" rel="noopener noreferrer"><img src="../IMG_0409.jpg" alt="Naapu photo 10"></a></div>
+    <div class="gallery-item"><a href="../IMG_0439.jpg" target="_blank" rel="noopener noreferrer"><img src="../IMG_0439.jpg" alt="Naapu photo 11"></a></div>
+    <div class="gallery-item"><a href="../DSC_0028.jpg" target="_blank" rel="noopener noreferrer"><img src="../DSC_0028.jpg" alt="Naapu photo 12"></a></div>
+    <div class="gallery-item"><a href="../IMG_0029.jpg" target="_blank" rel="noopener noreferrer"><img src="../IMG_0029.jpg" alt="Naapu photo 13"></a></div>
   </div>
-  <p style="text-align:center; color:#b5430a; margin:0.2rem 0 0.8rem;"><i class="fas fa-chevron-circle-right" style="color:var(--swt-orange);"></i> Click to expand (placeholder)</p>
+  <p style="text-align:center; color:#7a654f; margin:0.2rem 0 0.8rem;"><i class="fas fa-chevron-circle-right" style="color:var(--swt-orange);"></i> Click to expand (placeholder)</p>
 
-  <!-- CONTACT -->
-  <h2 class="section-title" id="contact"><i class="fas fa-address-card" style="color:var(--swt-orange); margin-right:0.5rem;"></i> Contact</h2>
-  <div class="contact-info">
+  <!-- CONTACT & DONATE -->
+  <h2 class="section-title" id="contact"><i class="fas fa-address-card" style="color:var(--swt-orange); margin-right:0.5rem;"></i> Contact & Donate</h2>
+  <div class="contact-info" style="flex-direction:column; align-items:flex-start; gap:0.7rem;">
     <span><i class="fas fa-map-pin"></i> Naapu Fund, Laikipia County, Kenya</span>
     <span><i class="fas fa-phone-alt"></i> +254 755 555 211</span>
     <span><i class="fas fa-envelope"></i> info@naapufund.org</span>
     <span><i class="fas fa-globe"></i> @NaapuFund</span>
-  </div>
-
-  <!-- DONATION INFORMATION -->
-  <h2 class="section-title" id="donate"><i class="fas fa-donate" style="color:var(--swt-orange); margin-right:0.5rem;"></i> Donation Information</h2>
-  <div class="donate-box">
-    <h3 style="color:var(--swt-brown);"><i class="fas fa-hand-holding-usd" style="color:var(--swt-orange);"></i> Support our work</h3>
-    <p><strong>Bank:</strong> Equity Bank · Account: 0123456789 · Naapu Fund</p>
-    <p><strong>M-PESA:</strong> Paybill 123456 · Account: NAAFU</p>
-    <p><i class="fas fa-globe-africa"></i> International donors: wire via SWIFT · EQBLKENA</p>
-    <p style="margin-top:0.8rem;"><a href="#" class="btn" style="padding:0.5rem 1.8rem;"><i class="fas fa-heart"></i> Donate online (coming soon)</a></p>
-    <p style="font-size:0.9rem; color:#5f4b34;">Every contribution goes directly to community programs. 100% transparency.</p>
+    <span><i class="fas fa-university"></i> Equity Bank · Account: 0123456789 · Naapu Fund</span>
+    <span><i class="fas fa-mobile-alt"></i> M-PESA Paybill 123456 · Account: NAAFU</span>
+    <p style="margin-top:0.5rem;"><a href="#" class="btn" style="padding:0.5rem 1.8rem;"><i class="fas fa-heart"></i> Donate online (coming soon)</a></p>
   </div>
 
   <!-- FOOTER -->
@@ -418,10 +431,6 @@
       <i class="fab fa-twitter"></i> <i class="fab fa-instagram"></i> <i class="fab fa-facebook"></i>
     </span>
     <span>Built with <i class="fas fa-heart" style="color:#E68A2E;"></i> for impact</span>
-    <span style="display:block; width:100%; margin-top:0.6rem; color:#5e4b36; font-weight:600;">For more information, visit the Samburu Women Trust website.</span>
-    <span style="display:block; width:100%; margin-top:0.15rem;">
-      <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0LEw3yK7KMjQwYLRSNagwNLcwTzO3tEi1SEs0NUtOsQIKpRlZGpoYWCalmCSapqYZegkXJ-YmlRaVKpTn56bmKZQUlRaXAAAj3xbs&q=samburu+women+trust&oq=sambur+wome&gs_lcrp=EgZjaHJvbWUqDwgBEC4YDRivARjHARiABDIGCAAQRRg5Mg8IARAuGA0YrwEYxwEYgAQyCQgCEAAYDRiABDIJCAMQABgNGIAEMgkIBBAAGA0YgAQyCAgFEAAYFhgeMggIBhAAGBYYHjIICAcQABgWGB4yCAgIEAAYFhge0gEJMTI0OTZqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener noreferrer" style="color:var(--swt-orange); font-weight:700; text-decoration:underline;">Samburu Women Trust website</a>
-    </span>
   </footer>
 </div>
 

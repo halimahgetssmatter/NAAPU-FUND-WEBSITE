@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naapu Fund · Gallery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <a href="indexhtml.html" class="logo">
+        <i class="fas fa-hands-helping"></i> Naapu <span>Fund</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="indexhtml.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="programs.html"><i class="fas fa-tree"></i> Programs</a></li>
+        <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
+        <li><a href="gallery.html" class="active"><i class="fas fa-images"></i> Gallery</a></li>
+      </ul>
+    </nav>
+
+    <header class="page-heading">
+      <i class="fas fa-images"></i> Gallery
+    </header>
+
+    <p class="page-intro">
+      Pictures added through the admin panel appear here automatically.
+    </p>
+
+    <div id="gallery-grid" class="gallery-grid"></div>
+  </div>
+
+  <script>
+    const storageKey = 'naapu-admin-items';
+
+    function getItems() {
+      const saved = localStorage.getItem(storageKey);
+      return saved ? JSON.parse(saved) : [];
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById('gallery-grid');
+      const pictures = getItems().filter(item => item.type === 'picture');
+
+      if (!pictures.length) {
+        grid.innerHTML = '<p class="empty-state">No pictures yet.</p>';
+        return;
+      }
+
+      grid.innerHTML = pictures.map(function (item) {
+        return `
+          <article class="card gallery-card">
+            <img src="${item.dataUrl}" alt="${item.title}" class="gallery-image">
+            <h3>${item.title}</h3>
+            <p>${item.notes || 'Uploaded picture'}</p>
+            <a href="${item.dataUrl}" target="_blank" rel="noopener" class="btn" style="margin-top:0.8rem; padding:0.4rem 1rem;">View</a>
+          </article>
+        `;
+      }).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', renderGallery);
+    window.addEventListener('storage', renderGallery);
+    window.addEventListener('naapu-items-updated', renderGallery);
+  </script>
+</body>
+</html>
